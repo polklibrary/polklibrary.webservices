@@ -11,6 +11,7 @@ class WSView(BrowserView):
     def __call__(self):
         self._data = {}
         self.process()
+        self.request.response.setHeader('Content-Type', 'text/html')
         return self.output
 
     def process(self):
@@ -20,6 +21,7 @@ class WSView(BrowserView):
         path = self.request.form.get('path', '')
 
         if path:
+            self.output += '<a href="https://library.uwosh.edu/">Back</a>'
             self.output += "Found path '" + path + "' in the following content. <br /><br />"
             brains = api.content.find(path={ "query": path })
             for brain in brains:
