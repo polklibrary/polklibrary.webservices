@@ -23,7 +23,7 @@ class WSView(BrowserView):
             self.output += "Found path '" + path + "' in the following content. <br /><br />"
             brains = api.content.find(path={ "query": path })
             for brain in brains:
-                self.output += '<a href="' + brain.getURL() + '">' + brain.Title + '</a>,' + brain.getURL() + ',' + brain.portal_type + ',<br />'
+                self.output += '"' + brain.Title + '","' + brain.getURL() + '","' + brain.portal_type + '"<br />'
 
         if text:
             self.output += "Found text '" + text + "' in the following content. <br /><br />"
