@@ -40,6 +40,14 @@
         class=".patch_emclinks.WSView"
         permission="zope2.View"
         />
+		
+    <browser:page
+        for="*"
+        name="patch_databases"
+        class=".patch_databases.WSView"
+        permission="cmf.ManagePortal"
+        />
+
 
     <browser:page
         for="*"
